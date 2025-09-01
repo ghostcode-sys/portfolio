@@ -1,0 +1,97 @@
+import ToolName from "./ToolName"
+import { useEffect, useState } from "react";
+
+const Technologies = () => {
+
+    const [description, setDescription] = useState<string>("")
+    const [years, setYears] = useState<number>(0)
+    const [months, setMonths] = useState<number>()
+    const [activeIcon, setActiveIcon] = useState<string>("")
+    const currentDate = new Date()
+    const [tools, setTools] = useState<{ name: string, active: boolean, description: string, icon: string, startDate: Date }[]>(
+        [
+            {
+                name: "Git",
+                active: true,
+                description: "A distributed version control system that tracks changes in source code during software development. It enables multiple developers to work together and maintain a complete history of project changes.",
+                icon: "devicon-git-plain",
+                startDate: new Date("2019-01-01"),
+            },
+            {
+                name: "Ubuntu",
+                active: false,
+                description: "A popular open-source Linux distribution based on Debian. Ubuntu is widely used for development, servers, and cloud computing due to its stability, security, and extensive package ecosystem.",
+                icon: "devicon-ubuntu-plain",
+                startDate: new Date("2019-06-01"),
+            },
+            {
+                name: "Windows",
+                active: false,
+                description: "A widely used operating system developed by Microsoft. Windows provides a user-friendly interface and supports a vast range of applications for both personal and professional use.",
+                icon: "devicon-windows8-original",
+                startDate: new Date("2019-01-01"),
+            },
+            {
+                name: "CI/CD",
+                active: false,
+                description: "Continuous Integration and Continuous Deployment (CI/CD) are practices that automate the building, testing, and deployment of applications. They help teams deliver software faster and more reliably.",
+                icon: "devicon-githubactions-plain", // You can use another icon if preferred
+                startDate: new Date("2021-03-01"),
+            }
+        ]
+    );
+
+    const makeActive = (toolName: string) => {
+        const updatedTools = tools.map(tool => {
+            if (tool.name === toolName) {
+                setDescription(tool.description)
+                setActiveIcon(tool.icon)
+                let tempyears = currentDate.getFullYear() - tool.startDate.getFullYear()
+                let tempmonths = currentDate.getMonth() - tool.startDate.getMonth()
+
+                if (tempmonths < 0) {
+                    tempmonths += 12
+                    tempyears -= 1
+                }
+                setMonths(tempmonths)
+                setYears(tempyears)
+                return { ...tool, active: true };
+            } else {
+                return { ...tool, active: false };
+            }
+        });
+        setTools(updatedTools);
+    }
+
+    useEffect(() => {
+        makeActive("Git")
+    }, [])
+
+    return (
+     
+            <div className='w-250 m-auto border-2 border-white/50 p-2 mt-10'>
+                <p className="text-4xl font-extrabold text-blue-400 text-shadow-blue-400/30 text-shadow-md text-center my-4">Tools & OS</p>
+                <div className='flex flex-row justify-between w-full h-fit my-5'>
+                    <div className='w-[40%] inline-flex flex-wrap h-fit'>
+                        {tools.map(tool =>
+                            <ToolName key={tool.name} name={tool.name} active={tool.active} makeActive={makeActive} color="bg-blue-500/10" />
+                        )}
+                    </div>
+                    <div className="w-[50%] h-fit border-2 rounded-xl border-white/10 text-wrap">
+                        <div className="bg-white/10 border-b border-white/10 pt-1">
+                            <i className={`${activeIcon} font-bold text-6xl text-blue-300`}></i>
+                        </div>
+                        <div className="text-blue-400 font-bold p-2 h-40">
+                            {description}
+                        </div>
+                        <div className="bg-white/10 border-t border-white/10 p-2">
+                            Experience: {years !== 0 ? years === 1 ? `${years} Year` : `${years} Years`: ""}{months !== 0 ? months === 1 ? `, ${months} Month` : `, ${months} Months`: ""}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    )
+}
+
+
+export default Technologies 

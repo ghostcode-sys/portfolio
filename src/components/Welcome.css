@@ -1,0 +1,33 @@
+.revealContent {
+    opacity: 0;
+    transform: translateY(10px);
+    animation-name: showContent;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showContent {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hideContent {
+    opacity: 1;
+    transform: translateY(0px);
+    animation-name: hideContent;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideContent {
+    to{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}

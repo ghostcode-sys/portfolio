@@ -1,0 +1,33 @@
+.showName {
+    opacity: 0;
+    transform: translateX(-100px);
+    animation-name: showName;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showName {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hideName {
+    opacity: 1;
+    transform: translateX(0px);
+    animation-name: hideName;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hideName {
+    to {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
