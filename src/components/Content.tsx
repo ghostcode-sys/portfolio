@@ -1,6 +1,7 @@
 
 import About from "./About";
 import Welcome from "./Welcome"
+import Project from "./Project";
 
 interface ContentProps {
   changeTopBarVisibility: (isVisible: boolean) => void;
@@ -14,6 +15,7 @@ const Content = ({ changeTopBarVisibility }: ContentProps) => {
       <div className="h-[90%] overflow-auto w-full relative  no-scrollbar pb-8" id="scrollArea">
         <Welcome changeTopBarVisibility={changeTopBarVisibility} />
         <About/>
+        <Project/>
       </div>
     </div>
   )

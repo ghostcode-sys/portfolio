@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
 
         <div className="w-fit h-full flex items-center justify-center mx-10">
-            <div className={`h-fit py-5 w-18 flex flex-col justify-center items-center overflow-hidden m-auto rounded-full bg-white/10 border-1 border-white/50 backdrop-blur-sm`}>
+            <div className={`h-fit py-5 w-18 flex flex-col justify-center items-center overflow-hidden m-auto`}>
                 {
                     iconDetails.map((icon) => (
                         <Icon key={icon.iconName} iconName={icon.iconName} isActive={icon.isActive} Activate={activeIcon}/>

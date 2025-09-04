@@ -12,7 +12,7 @@ function App() {
    }
 
   return (
-    <div className='w-screen min-w-220 h-screen box-border overflow-hidden relative text-white font-mono'>
+    <div className='w-screen lg:min-w-220 lg:h-screen box-border overflow-hidden relative text-white font-mono'>
       <Backgound/>
       <div className='w-full h-full flex flex-row px-2 py-5 box-border'>
       <Navbar />

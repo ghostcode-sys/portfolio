@@ -101,8 +101,6 @@ const Languages = () => {
     }, [])
 
     return (
-            <div className='w-250 m-auto border-2 border-white/50 p-2'>
-                <p className="text-4xl font-extrabold text-emerald-400 text-shadow-emerald-400/30 text-shadow-md text-center my-4">Languages</p>
                 <div className='flex flex-row justify-between w-full h-fit my-5'>
                     <div className='w-[40%] inline-flex flex-wrap h-fit'>
                         {tools.map(tool =>
@@ -110,8 +108,21 @@ const Languages = () => {
                         )}
                     </div>
                     <div className="w-[50%] h-fit border-2 rounded-xl border-white/10 text-wrap">
-                        <div className="bg-white/10 border-b border-white/10 pt-1">
-                            <i className={`${activeIcon} font-bold text-6xl text-emerald-300`}></i>
+                        <div className="bg-white/10 border-b border-white/10 rounded-t-xl  flex justify-start">
+                            <i
+                                className={`${activeIcon} font-bold text-6xl text-emerald-500 transition-transform duration-300 ease-in-out`}
+                                key={activeIcon}
+                                style={{ animation: "iconPop 0.4s" }}
+                            ></i>
+                            <style>
+                                {`
+                                    @keyframes iconPop {
+                                        0% { transform: scale(0.7); opacity: 0.5; }
+                                        60% { transform: scale(1.2); opacity: 1; }
+                                        100% { transform: scale(1); opacity: 1; }
+                                    }
+                                `}
+                            </style>
                         </div>
                         <div className="text-emerald-400 font-bold p-2 h-40">
                             {description}
@@ -121,7 +132,6 @@ const Languages = () => {
                         </div>
                     </div>
                 </div>
-            </div>
     )
 }
 

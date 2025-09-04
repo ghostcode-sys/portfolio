@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import OpenInNew from "@mui/icons-material/OpenInNew"
 import "./Welcome.css"
 
 interface WelcomeProps {
@@ -102,6 +103,10 @@ const Welcome = ({changeTopBarVisibility}:WelcomeProps) => {
         };
     }, []);
 
+    const ShowResume = () => {
+        window.open("https://drive.google.com/file/d/1CSqBaz1z1d4hnOu3Yd1EdgOpaWTeIVKL/view?usp=drive_link", "_blank");
+    }
+
     return (
         <div className="w-full h-full flex justify-center items-center relative">
             <div className="m-10 hover:bg-blue-500/3 hover:border border-white/10 rounded-xl p-4 box-border ">
@@ -113,6 +118,10 @@ const Welcome = ({changeTopBarVisibility}:WelcomeProps) => {
                 </p>
                 <p className={`text-2xl my-2 revealContent ${!isFirstContentIntersect? "revealContent" : "hideContent"}`} ref={firstContentRef}>I’m a <span className="bg-emerald-300/30 rounded p-1">Software Developer</span> passionate about solving complex problems and building clean, scalable solutions. </p>
                 <p className={`text-2xl my-2 revealContent ${!isSecondIntersect? "revealContent" : "hideContent"}`} ref={secondContentRef}>From optimizing algorithms in C++, experimenting with Go concurrency, or designing sleek React + Tailwind UIs, I enjoy learning new technologies and applying them to real-world challenges.</p>
+
+                <div className={`w-fit h-fit p-2 bg-linear-to-t from-violet-500/30 to-trasparent border-1 border-white cursor-pointer rounded-full ${!isSecondIntersect? "revealContent" : "hideContent"} mt-10 hover:font-semibold`} onClick={ShowResume}>
+                    Download Resume <span><OpenInNew/> </span>
+                </div>
             </div>
         </div>
     )

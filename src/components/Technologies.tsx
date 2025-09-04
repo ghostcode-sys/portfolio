@@ -69,27 +69,38 @@ const Technologies = () => {
 
     return (
      
-            <div className='w-250 m-auto border-2 border-white/50 p-2 mt-10'>
-                <p className="text-4xl font-extrabold text-blue-400 text-shadow-blue-400/30 text-shadow-md text-center my-4">Tools & OS</p>
+           
                 <div className='flex flex-row justify-between w-full h-fit my-5'>
                     <div className='w-[40%] inline-flex flex-wrap h-fit'>
                         {tools.map(tool =>
-                            <ToolName key={tool.name} name={tool.name} active={tool.active} makeActive={makeActive} color="bg-blue-500/10" />
+                            <ToolName key={tool.name} name={tool.name} active={tool.active} makeActive={makeActive} color="bg-amber-500/10" />
                         )}
                     </div>
                     <div className="w-[50%] h-fit border-2 rounded-xl border-white/10 text-wrap">
-                        <div className="bg-white/10 border-b border-white/10 pt-1">
-                            <i className={`${activeIcon} font-bold text-6xl text-blue-300`}></i>
+                        <div className="bg-white/10 border-b border-white/10 rounded-t-xl  flex justify-start">
+                            <i
+                                className={`${activeIcon} font-bold text-6xl text-amber-50 transition-transform duration-300 ease-in-out`}
+                                key={activeIcon}
+                                style={{ animation: "iconPop 0.4s" }}
+                            ></i>
+                            <style>
+                                {`
+                                    @keyframes iconPop {
+                                        0% { transform: scale(0.7); opacity: 0.5; }
+                                        60% { transform: scale(1.2); opacity: 1; }
+                                        100% { transform: scale(1); opacity: 1; }
+                                    }
+                                `}
+                            </style>
                         </div>
-                        <div className="text-blue-400 font-bold p-2 h-40">
+                        <div className="text-amber-50 font-bold p-2 h-40">
                             {description}
                         </div>
-                        <div className="bg-white/10 border-t border-white/10 p-2">
+                        <div className="bg-white/10 border-t border-white/10 p-2 rounded-b-xl">
                             Experience: {years !== 0 ? years === 1 ? `${years} Year` : `${years} Years`: ""}{months !== 0 ? months === 1 ? `, ${months} Month` : `, ${months} Months`: ""}
                         </div>
                     </div>
                 </div>
-            </div>
     )
 }
 
