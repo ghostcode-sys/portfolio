@@ -17,7 +17,6 @@ const IconDisplay = ({ iconName, isActive, Activate }: IconDisplayProps) => {
   const activeBoxStyle: string = `flex items-center justify-center w-15 h-15 m-auto rounded-md my-4 text-white hover:cursor-pointer bg-radial-[at_50%_50%] from-white/20 to-transparent `;
 
   const activeIcon = () => {
-    console.log("Icon clicked:", iconName);
     Activate(iconName)
   }
 

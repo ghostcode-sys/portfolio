@@ -67,7 +67,7 @@ const About = () => {
                     <Languages />
                 </div>
                 <div
-                    className='w-250 m-auto p-2 mt-10 transition-all duration-700 ease-in-out'
+                    className='w-250 m-auto p-2 mt-10 transition-opacity transistion duration-700 ease-in-out'
                     style={{ transitionProperty: 'opacity' }}
                     ref={el => {
                         if (el) {

@@ -14,7 +14,7 @@ interface CardProps {
 const projects: CardProps[] = [
   {
     color: "green",
-    link: "https://github.com/yourusername/api-history",
+    link: "https://github.com/ghostcode-sys/postmanHistroy",
     projectName: "API History",
     description:
       "A Dockerized API testing tool that validates endpoints, logs results to a database, and dynamically generates Swagger documentation from test outcomes.",
@@ -24,7 +24,7 @@ const projects: CardProps[] = [
   },
   {
     color: "purple",
-    link: "https://github.com/yourusername/securechat",
+    link: "https://github.com/ghostcode-sys/SecureChat",
     projectName: "SecureChat",
     description:
       "A secure messaging app that uses Steganography to hide encrypted messages within images.",
@@ -34,7 +34,7 @@ const projects: CardProps[] = [
   },
   {
     color: "lime",
-    link: "https://github.com/yourusername/bingo",
+    link: "https://github.com/ghostcode-sys/bingo",
     projectName: "Bingo",
     description: "A real-time, socket-based multiplayer game.",
     description2:
@@ -43,13 +43,13 @@ const projects: CardProps[] = [
   },
   {
     color: "pink",
-    link: "https://github.com/yourusername/portfolio",
+    link: "https://github.com/ghostcode-sys/portfolio",
     projectName: "Portfolio",
     description:
       "A professional portfolio to showcase personal projects and technical skills.",
     description2:
       "Responsive, modern UI with smooth animations and SEO optimizations. Acts as a central hub to present experience, achievements, and coding expertise.",
-    tags: "React, TypeScript, TailwindCSS, Go",
+    tags: "React, TypeScript, TailwindCSS, Go, Docker",
   },
   {
     color: "orange",
@@ -66,13 +66,15 @@ const projects: CardProps[] = [
 
 const Project = () => {
     return (
-        <div className="w-full h-full">
+        <div className="w-full h-fit">
             <div className='font-extrabold text-violet-600 text-6xl h-fit w-fit m-auto '
                 style={{ textShadow: '2px 2px 8px rgba(99,102,241,0.5)' }}
             >Featured Projects</div>
+            <div>
             {projects.map((val, idx)=> {
                 return <Card key={idx} color={val.color}  tags={val.tags} description={val.description} description2={val.description2} projectName={val.projectName} link={val.link}/>
             })}
+            </div>
         </div>
     )
 }

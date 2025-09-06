@@ -1,0 +1,12 @@
+.showText{
+    opacity: 0;
+    translate: scale(0);
+    animation: showText 0.5s forwards;
+}
+
+@keyframes showText {
+    to {
+        translate: scale(1);
+        opacity: 1;
+    }
+}

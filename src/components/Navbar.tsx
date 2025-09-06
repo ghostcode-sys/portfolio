@@ -1,16 +1,20 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Icon from "./IconDisplay"
 
-const Navbar = () => {
+interface NavbarProps { 
+    activeIconName: string;
+    changeActiveIcon: (iconName: string) => void;
+}
+const Navbar = ({activeIconName, changeActiveIcon}:NavbarProps) => {
     const [iconDetails, setIconDetails] = useState<{ iconName: string; isActive: boolean}[]>([
-        { iconName: "home", isActive: true},
+        { iconName: "home", isActive: false},
         { iconName: "about", isActive: false},
         { iconName: "project", isActive: false},
         { iconName: "contact", isActive: false },
         // Add more icons here if needed
     ]);
     const activeIcon = (iconName: string) => {
-
+        changeActiveIcon(iconName);
         const updatedIcons = iconDetails.map(icon => {
             if (icon.iconName === iconName) {
                 return { ...icon, isActive: true };
@@ -20,6 +24,18 @@ const Navbar = () => {
         });
         setIconDetails(updatedIcons);
     }
+
+    useEffect(() => { 
+         const updatedIcons = iconDetails.map(icon => {
+            if (icon.iconName === activeIconName) {
+                return { ...icon, isActive: true };
+            } else {
+                return { ...icon, isActive: false };
+            }
+        });
+        setIconDetails(updatedIcons);
+     },[activeIconName])
+
     return (
 
         <div className="w-fit h-full flex items-center justify-center mx-10">

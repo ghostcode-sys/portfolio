@@ -119,8 +119,8 @@ const Welcome = ({changeTopBarVisibility}:WelcomeProps) => {
                 <p className={`text-2xl my-2 revealContent ${!isFirstContentIntersect? "revealContent" : "hideContent"}`} ref={firstContentRef}>I’m a <span className="bg-emerald-300/30 rounded p-1">Software Developer</span> passionate about solving complex problems and building clean, scalable solutions. </p>
                 <p className={`text-2xl my-2 revealContent ${!isSecondIntersect? "revealContent" : "hideContent"}`} ref={secondContentRef}>From optimizing algorithms in C++, experimenting with Go concurrency, or designing sleek React + Tailwind UIs, I enjoy learning new technologies and applying them to real-world challenges.</p>
 
-                <div className={`w-fit h-fit p-2 bg-linear-to-t from-violet-500/30 to-trasparent border-1 border-white cursor-pointer rounded-full ${!isSecondIntersect? "revealContent" : "hideContent"} mt-10 hover:font-semibold`} onClick={ShowResume}>
-                    Download Resume <span><OpenInNew/> </span>
+                <div className={`w-fit h-fit cursor-pointer flex hover:text-emerald-400 ${!isSecondIntersect? "revealContent" : "hideContent"} hover:font-semibold`} onClick={ShowResume}>
+                    <span><OpenInNew/> </span> Resume 
                 </div>
             </div>
         </div>

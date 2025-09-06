@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { OpenInNew, DocumentScannerOutlined, SportsEsports, Sms, PortraitOutlined, Assignment } from '@mui/icons-material';
+import { DocumentScannerOutlined, SportsEsports, Sms, PortraitOutlined, Assignment } from '@mui/icons-material';
 
 type colorArr = "green" | "purple" | "lime" | "pink" | "orange"
 interface CardProps {
