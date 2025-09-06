@@ -10,3 +10,27 @@
         opacity: 1;
     }
 }
+
+.showFromStatus{
+    opacity: 0;
+    transform: scale(0.8);
+    animation: showFromStatus 5s forwards;
+}
+
+@keyframes showFromStatus {
+    0% {
+        opacity: 0;
+    }
+    25%{
+        opacity: 1;
+        transform: scale(1.1) translate(20px, 0);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1) translate(20px, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8) translate(0px, 0);
+    }
+}

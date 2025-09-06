@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Backgound from './components/Background'
 import Content from './components/Content'
 import Topbar from './components/Topbar'
+import axios from 'axios'
 import './App.css'
 function App() {
    const [showTopBar, setShowTopBar] = useState(false);
@@ -15,6 +16,18 @@ function App() {
    const changeActiveIcon = (iconName: string) => {
      setActiveIconName(iconName);
    } 
+
+  useEffect(() => {
+    // Run in background, errors are ignored
+    (async () => {
+     try {
+      await axios.get("/logIp");
+     } catch (e) {
+      // Silently ignore errors
+      console.log(e);
+     }
+    })();
+  }, []);
 
   return (
     <div className='w-screen lg:min-w-220 lg:h-screen box-border overflow-hidden relative text-white font-mono'>

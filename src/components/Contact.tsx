@@ -1,5 +1,5 @@
 import { Email, GitHub, LinkedIn } from "@mui/icons-material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Contact.css";
 
 const Contact = () => {
@@ -8,13 +8,15 @@ const Contact = () => {
     email: "",
     message: "",
   });
+
+  const [formStatus, setFormStatus] = useState<string>("");
+
   const handleTextChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { id, value } = e.target;
     setFormObject((prev) => ({ ...prev, [id]: value }));
   };
-
 
   const handleClick = (clickType: string) => {
     if (clickType === "email") {
@@ -25,13 +27,38 @@ const Contact = () => {
       window.open("https://www.linkedin.com/in/prashant-chandel-0a7032205");
     }
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormObject({ name: "", email: "", message: "" });
-  }
+    try {
+      const response = await fetch("/postQuery", {
+        method: "POST",
+        body: JSON.stringify(formObject),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!response.ok) {
+        setFormStatus(
+          "There was an error submitting the form. Please try Email."
+        );
+        return;
+      }
+      setFormStatus("Form submitted successfully!");
+      setFormObject({ name: "", email: "", message: "" });
+    } catch (error) {
+      setFormStatus(
+        "There was an error submitting the form. Please try again later."
+      );
+    }
+  };
 
- 
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setFormStatus("");
+    }, 5000)
+    return () => clearTimeout(timeoutId);
+  }, [formStatus])
+
   return (
     <div className="w-full h-full mt-10">
       <div
@@ -79,7 +106,10 @@ const Contact = () => {
           <div className="w-full text-neutral-400 text-4xl font-bold text-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
             Query For Me...
           </div>
-          <form className="border-4 border-neutral-500/50 rounded-xl p-4 my-4 bg-neutral-600/50" onSubmit={handleSubmit}>
+          <form
+            className="border-4 border-neutral-500/50 rounded-xl p-4 my-4 bg-neutral-600/50"
+            onSubmit={handleSubmit}
+          >
             <div className="w-full">
               <input
                 className="w-full outline-none bg-transparent border-b-2 border-neutral-500/50 focus:border-cyan-500/70 focus:text-cyan-400 p-2 mb-4"
@@ -113,12 +143,19 @@ const Contact = () => {
                 onChange={handleTextChange}
               />
             </div>
-            <div className="w-full">
-              <input 
-                type="submit" 
+            <div className="w-full flex items-center">
+              <input
+                type="submit"
                 value="Submit"
-                className="cursor-pointer border-2 px-6 py-2 rounded-xl text-white font-bold bg-blue-400/50 duration-300 hover:scale-105 transition-scale " 
+                className="cursor-pointer border-2 px-6 py-2 rounded-xl text-white font-bold bg-blue-400/50 duration-300 hover:scale-105 transition-scale "
               />
+              {formStatus !== "" ? (
+                <div className="mx-2 font-semibold bg-emerald-700 p-2 border-2 rounded-xl opacity-100 border-white showFromStatus">
+                  {formStatus}
+                </div>
+              ) : (
+                ""
+              )}
             </div>
           </form>
         </div>
