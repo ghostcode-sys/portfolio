@@ -22,11 +22,37 @@ const IconDisplay = ({ iconName, isActive, Activate }: IconDisplayProps) => {
 
   return (
     <div className={isActive ? activeBoxStyle : defaultBoxStyle}>
-      {iconName === "home" ? <HomeIcon sx={{ fontSize: 30 }} onClick={activeIcon} /> : 
-      iconName === "about" ? <PersonIcon sx={{ fontSize: 30 }} onClick={activeIcon} /> : 
-      iconName === "project" ? <ConstructionIcon sx={{ fontSize: 30 }} onClick={activeIcon} /> : 
-      iconName === "contact" ? <ContactMailIcon sx={{ fontSize: 30 }} onClick={activeIcon} /> : 
-      <div onClick={activeIcon}>{iconName}</div>}
+      {iconName === "home" ? (
+      <HomeIcon
+        sx={{
+        fontSize: { xs: 22, sm: 30 },
+        }}
+        onClick={activeIcon}
+      />
+      ) : iconName === "about" ? (
+      <PersonIcon
+        sx={{
+        fontSize: { xs: 22, sm: 30 },
+        }}
+        onClick={activeIcon}
+      />
+      ) : iconName === "project" ? (
+      <ConstructionIcon
+        sx={{
+        fontSize: { xs: 22, sm: 30 },
+        }}
+        onClick={activeIcon}
+      />
+      ) : iconName === "contact" ? (
+      <ContactMailIcon
+        sx={{
+        fontSize: { xs: 22, sm: 30 },
+        }}
+        onClick={activeIcon}
+      />
+      ) : (
+      <div onClick={activeIcon}>{iconName}</div>
+      )}
     </div>
   );
 }

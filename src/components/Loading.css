@@ -1,0 +1,6 @@
+.shadowbox{
+    box-shadow: 0 0 6px 3px rgba(236, 61, 192, 0.856),
+                0 0 10px 6px rgba(236, 61, 192, 0.556),
+                inset 0 0 6px 3px rgba(236, 61, 192, 0.856),
+                inset 0 0 10px 6px rgba(236, 61, 192, 0.556);
+}

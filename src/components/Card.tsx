@@ -87,32 +87,32 @@ const Card = ({color, link, projectName, description, description2, tags}: CardP
     }, [])
 
     return (
-        <div ref={container} className={`w-240 m-auto my-10 p-10 rounded-xl bg-linear-to-r ${backgoundContainer[color]} to-gray-950/50 hover:scale-105 duration-500 ease-in-out transition-transform hover:border-2 ${borderColor[color]}`}>
+        <div ref={container} className={`w-full lg:w-[90%] m-auto my-10 p-10 rounded-xl bg-linear-to-r ${backgoundContainer[color]} to-gray-950/50 hover:scale-105 duration-500 ease-in-out transition-transform hover:border-2 ${borderColor[color]}`}>
             <div className='flex justify-between items-center mb-5'>
                 <div className={`border ${borderColor[color]} w-fit aspect-square p-3 rounded-lg `}>
-                    {projectName == "API History" ?  <DocumentScannerOutlined className={textColor[color]} sx={{ fontSize: 60 }} /> :
-                    projectName == "SecureChat" ? <Sms  className={textColor[color]} sx={{ fontSize: 60 }} /> : 
-                    projectName == "Bingo" ? <SportsEsports className={textColor[color]} sx={{ fontSize: 60 }} /> :
-                    projectName == "Portfolio"? <PortraitOutlined className={textColor[color]} sx={{ fontSize: 60 }} /> :
-                    projectName == "Easy form" ? <Assignment className={textColor[color]} sx={{ fontSize: 60 }} /> : ""
+                    {projectName == "API History" ?  <DocumentScannerOutlined className={textColor[color]} sx={{ fontSize: { xs: 22, sm: 60 } }} /> :
+                    projectName == "SecureChat" ? <Sms  className={textColor[color]} sx={{ fontSize: { xs: 22, sm: 60 } }} /> : 
+                    projectName == "Bingo" ? <SportsEsports className={textColor[color]} sx={{ fontSize: { xs: 22, sm: 60 } }} /> :
+                    projectName == "Portfolio"? <PortraitOutlined className={textColor[color]} sx={{ fontSize: { xs: 22, sm: 60 } }} /> :
+                    projectName == "Easy form" ? <Assignment className={textColor[color]} sx={{ fontSize: { xs: 22, sm: 60 } }} /> : ""
                 }
                 </div>
                 <div className={isHovered ? "opacity-100" : "opacity-0"} onClick={openProject}>
-                    <i className={`devicon-github-original text-6xl cursor-pointer w-fit aspect-square p-3 rounded-lg ${textColor[color]}`}></i>
+                    <i className={`devicon-github-original text-4xl lg:text-6xl cursor-pointer w-fit aspect-square p-3 rounded-lg ${textColor[color]}`}></i>
                 </div>
             </div>
-            <div className={`text-5xl font-extrabold ${isHovered ? textColor[color] : "text-white"}`}>
+            <div className={`text-2xl lg:text-5xl font-extrabold ${isHovered ? textColor[color] : "text-white"}`}>
                 {projectName}
             </div>
-            <div className='my-2'>
+            <div className='my-2 lg:h-fit h-30 overflow-auto'>
                 {description}
             </div>
-            <div className='my-2'>
+            <div className='my-2 hidden lg:block'>
                 {description2}
             </div>
-            <div className='inline-flex flex-wrap h-fit my-2'>
+            <div className='inline-flex flex-wrap h-30 overflow-auto lg:h-fit my-2'>
                 {tagList.map((val, idx) => {
-                     return <div className={`${buttonBackground[color]} px-5 py-2 font-bold rounded-full border ${borderColor[color]} mx-2`} key={idx}>{val}</div>
+                     return <div className={`${buttonBackground[color]} px-5 py-2 font-bold rounded-2xl lg:rounded-full border ${borderColor[color]} m-2`} key={idx}>{val}</div>
                 })}
             </div>
         </div>

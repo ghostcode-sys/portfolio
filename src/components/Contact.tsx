@@ -62,18 +62,18 @@ const Contact = () => {
   return (
     <div className="w-full h-full mt-10">
       <div
-        className="font-extrabold text-orange-600 text-6xl h-fit w-fit m-auto "
+        className="font-extrabold text-orange-600 text-3xl lg:text-6xl h-fit w-fit m-auto "
         style={{ textShadow: "2px 2px 8px rgba(99,102,241,0.5)" }}
       >
         Contact Me
       </div>
-      <div className="w-250 m-auto text-center mt-5">
+      <div className="lg:w-[80%] m-auto lg:text-center mt-5">
         I am currently open to new opportunities and collaborations. Whether you
         have a project in mind, need assistance with development, or just want
         to connect, feel free to reach out!
       </div>
-      <div className="flex items-center w-full h-fit mt-5">
-        <div className="w-[25%] text-neutral-500">
+      <div className="lg:flex items-center w-full h-fit mt-5">
+        <div className="lg:w-[25%] text-neutral-500">
           <div
             className="border rounded-md border-neutral-400 backdrop-blur-3xl w-full py-2 mt-4 hover:shadow-[0_0_15px_rgba(255,255,255,0.25)] transition-shadow duration-300 cursor-pointer m-auto flex items-center hover:text-cyan-700 hover:border-cyan-500"
             onClick={() => handleClick("email")}
@@ -102,7 +102,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="h-full w-full mx-4">
+        <div className="h-full w-full lg:mx-4 mt-5">
           <div className="w-full text-neutral-400 text-4xl font-bold text-shadow-[0_0_15px_rgba(255,255,255,0.5)]">
             Query For Me...
           </div>
@@ -150,7 +150,7 @@ const Contact = () => {
                 className="cursor-pointer border-2 px-6 py-2 rounded-xl text-white font-bold bg-blue-400/50 duration-300 hover:scale-105 transition-scale "
               />
               {formStatus !== "" ? (
-                <div className="mx-2 font-semibold bg-emerald-700 p-2 border-2 rounded-xl opacity-100 border-white showFromStatus">
+                <div className="mx-2 font-semibold p-2 opacity-100 border-white showFromStatus">
                   {formStatus}
                 </div>
               ) : (

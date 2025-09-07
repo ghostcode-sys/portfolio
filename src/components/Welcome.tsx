@@ -111,13 +111,13 @@ const Welcome = ({changeTopBarVisibility}:WelcomeProps) => {
         <div className="w-full h-full flex justify-center items-center relative">
             <div className="m-10 hover:bg-blue-500/3 hover:border border-white/10 rounded-xl p-4 box-border ">
                 <p
-                    className={`font-extrabold  text-6xl ${!isIntersecting? "revealContent" : "hideContent"}`}
+                    className={`font-extrabold  lg:text-6xl ${!isIntersecting? "revealContent" : "hideContent"}`}
                     ref={nameRef}
                 >
                     Hi, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-600"> Prashant Chandel </span>
                 </p>
-                <p className={`text-2xl my-2 revealContent ${!isFirstContentIntersect? "revealContent" : "hideContent"}`} ref={firstContentRef}>I’m a <span className="bg-emerald-300/30 rounded p-1">Software Developer</span> passionate about solving complex problems and building clean, scalable solutions. </p>
-                <p className={`text-2xl my-2 revealContent ${!isSecondIntersect? "revealContent" : "hideContent"}`} ref={secondContentRef}>From optimizing algorithms in C++, experimenting with Go concurrency, or designing sleek React + Tailwind UIs, I enjoy learning new technologies and applying them to real-world challenges.</p>
+                <p className={`lg:text-2xl my-2 revealContent ${!isFirstContentIntersect? "revealContent" : "hideContent"}`} ref={firstContentRef}>I’m a <span className="bg-emerald-300/30 rounded p-1">Software Developer</span> passionate about solving complex problems and building clean, scalable solutions. </p>
+                <p className={`lg:text-2xl my-2 revealContent ${!isSecondIntersect? "revealContent" : "hideContent"}`} ref={secondContentRef}>From optimizing algorithms in C++, experimenting with Go concurrency, or designing sleek React + Tailwind UIs, I enjoy learning new technologies and applying them to real-world challenges.</p>
 
                 <div className={`w-fit h-fit cursor-pointer flex hover:text-emerald-400 ${!isSecondIntersect? "revealContent" : "hideContent"} hover:font-semibold`} onClick={ShowResume}>
                     <span><OpenInNew/> </span> Resume 

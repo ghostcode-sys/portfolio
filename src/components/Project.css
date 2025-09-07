@@ -1,41 +1,12 @@
-.animate-rotateCW {
-    animation-name: rotateCW;
-    animation-duration: 40s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-.animate-rotateCCW {
-    animation-name: rotateCCW;
-    animation-duration: 40s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-.animate-pulseGlow {
-    animation-name: pulseGlow;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
+.animate-fadeIn {
+   animation: fadeIn 0.5s ease-in-out;
+ }
 
-
-@keyframes rotateCW {
-    to {
-        transform: translate3d(0,0,0) rotate(-360deg)
-    }
-}
-
-@keyframes rotateCCW {
-    to {
-        transform: rotate(360deg)
-    }
-}
-
-@keyframes pulseGlow {
-    from {
-        background-size: "60%"
-    }
-
-    to {
-        background-size: "100%"
-    }
-}
+ @keyframes fadeIn {
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 1;
+   }
+ }

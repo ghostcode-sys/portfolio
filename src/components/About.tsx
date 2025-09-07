@@ -34,17 +34,17 @@ const About = () => {
     return (
         <div className="w-full h-fit my-10">
             <div
-                className='font-extrabold text-indigo-600 text-6xl h-fit w-fit m-auto'
+                className='font-extrabold text-indigo-600 text-3xl lg:text-6xl h-fit w-fit m-auto'
                 style={{ textShadow: '2px 2px 8px rgba(99,102,241,0.5)' }}
                 ref={HeadingRef}
             >
                 Technical Skills
             </div>
-            <div className='w-250 m-auto text-center'>
+            <div className='w-[80%] m-auto lg:text-center'>
                 I’m a developer with a strong foundation in <div className='bg-emerald-400/10 w-50 p-1 border border-white/10 rounded-md inline-block'>{msg}</div> and practical experience working across different Languages and Framework
             </div>
             <div className='mt-10 w-full h-fit'>
-                <div  className='w-250 m-auto p-2 mt-10 transition-all duration-700 ease-in-out '
+                <div  className='w-[80%] m-auto p-2 mt-10 transition-all duration-700 ease-in-out '
                     style={{ transitionProperty: 'opacity' }}
                     ref={el => {
                         if (el) {
@@ -58,16 +58,16 @@ const About = () => {
                                         el.style.transform = "scale(0.9)"
                                     }
                                 },
-                                { threshold: 0.8 }
+                                { threshold: 0.5 }
                             );
                             observer.observe(el);
                         }
                     }}>
-                    <p className="text-4xl font-extrabold text-emerald-400 text-shadow-emerald-400/30 text-shadow-md text-center my-4">Languages</p>
+                    <p className="text-2xl lg:text-4xl font-extrabold text-emerald-400 text-shadow-emerald-400/30 text-shadow-md text-center my-4">Languages</p>
                     <Languages />
                 </div>
                 <div
-                    className='w-250 m-auto p-2 mt-10 transition-opacity transistion duration-700 ease-in-out'
+                    className='w-[80%] m-auto p-2 mt-10 transition-opacity transistion duration-700 ease-in-out'
                     style={{ transitionProperty: 'opacity' }}
                     ref={el => {
                         if (el) {
@@ -81,16 +81,16 @@ const About = () => {
                                         el.style.transform = "scale(0.9)"
                                     }
                                 },
-                                { threshold: 0.8 }
+                                { threshold: 0.5 }
                             );
                             observer.observe(el);
                         }
                     }}
                     >
-                    <p className="text-4xl font-extrabold text-blue-400 text-shadow-blue-400/30 text-shadow-md text-center my-4">Frameworks & Libraries</p>
+                    <p className="text-2xl lg:text-4xl font-extrabold text-blue-400 text-shadow-blue-400/30 text-shadow-md text-center my-4">Frameworks & Libraries</p>
                     <Libraries />
                 </div>
-                <div  className='w-250 m-auto p-2 mt-10 transition-all duration-700 ease-in-out '
+                <div  className='w-[80%] m-auto p-2 mt-10 transition-all duration-700 ease-in-out '
                     style={{ transitionProperty: 'opacity' }}
                     ref={el => {
                         if (el) {
@@ -104,12 +104,12 @@ const About = () => {
                                         el.style.transform = "scale(0.9)"
                                     }
                                 },
-                                { threshold: 0.8 }
+                                { threshold: 0.5 }
                             );
                             observer.observe(el);
                         }
                     }}>
-                    <p className="text-4xl font-extrabold text-amber-50 text-shadow-amber-50/30 text-shadow-md text-center my-4">Tools & OS</p>
+                    <p className="text-2xl lg:text-4xl font-extrabold text-amber-50 text-shadow-amber-50/30 text-shadow-md text-center my-4">Tools & OS</p>
                     <Technologies />
                 </div>
             </div>

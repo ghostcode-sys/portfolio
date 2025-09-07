@@ -70,16 +70,16 @@ const Technologies = () => {
     return (
      
            
-                <div className='flex flex-row justify-between w-full h-fit my-5'>
-                    <div className='w-[40%] inline-flex flex-wrap h-fit'>
+                <div className='lg:flex lg:flex-row justify-between w-full h-fit my-5'>
+                    <div className='w-full lg:w-[40%] inline-flex flex-wrap lg:h-fit  h-45 overflow-auto'>
                         {tools.map(tool =>
                             <ToolName key={tool.name} name={tool.name} active={tool.active} makeActive={makeActive} color="bg-amber-500/10" />
                         )}
                     </div>
-                    <div className="w-[50%] h-fit border-2 rounded-xl border-white/10 text-wrap">
+                    <div className="w-full lg:w-[50%] h-fit border-2 rounded-xl border-white/10 text-wrap">
                         <div className="bg-white/10 border-b border-white/10 rounded-t-xl  flex justify-start">
                             <i
-                                className={`${activeIcon} font-bold text-6xl text-amber-50 transition-transform duration-300 ease-in-out`}
+                                className={`${activeIcon} font-bold text-3xl p-2 lg:text-6xl text-amber-50 transition-transform duration-300 ease-in-out`}
                                 key={activeIcon}
                                 style={{ animation: "iconPop 0.4s" }}
                             ></i>
@@ -93,7 +93,7 @@ const Technologies = () => {
                                 `}
                             </style>
                         </div>
-                        <div className="text-amber-50 font-bold p-2 h-40">
+                        <div className="text-amber-50 font-bold p-2 h-40 overflow-auto">
                             {description}
                         </div>
                         <div className="bg-white/10 border-t border-white/10 p-2 rounded-b-xl">

@@ -38,8 +38,8 @@ const Navbar = ({activeIconName, changeActiveIcon}:NavbarProps) => {
 
     return (
 
-        <div className="w-fit h-full flex items-center justify-center mx-10">
-            <div className={`h-fit py-5 w-18 flex flex-col justify-center items-center overflow-hidden m-auto`}>
+        <div className="w-full lg:w-fit lg:h-full lg:flex items-center justify-center lg:mx-10 fixed bottom-0 lg:relative z-50">
+            <div className={`h-fit lg:py-5 w-full lg:w-18 flex lg:flex-col justify-center items-center overflow-hidden m-auto`}>
                 {
                     iconDetails.map((icon) => (
                         <Icon key={icon.iconName} iconName={icon.iconName} isActive={icon.isActive} Activate={activeIcon}/>

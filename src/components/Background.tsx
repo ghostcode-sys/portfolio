@@ -30,7 +30,7 @@ const Background = () => {
 
         function resizeCanvas() {
             if (canvas == null) return;
-            canvas.width = window.innerWidth;
+            canvas.width = Math.max(window.innerWidth, 1026);
             canvas.height = window.innerHeight;
         }
 
