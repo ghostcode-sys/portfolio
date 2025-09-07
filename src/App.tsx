@@ -5,11 +5,10 @@ import Content from "./components/Content";
 import Topbar from "./components/Topbar";
 import axios from "axios";
 import "./App.css";
-import Loading from "./components/Loading";
 function App() {
   const [showTopBar, setShowTopBar] = useState(false);
   const [activeIconName, setActiveIconName] = useState("home");
-  const [loading, setLoading] = useState(true);
+
 
   const changeTopBarVisibility = (isVisible: boolean) => {
     setShowTopBar(isVisible);
@@ -32,9 +31,6 @@ function App() {
   }, []);
 
   return (
-    loading ? <div className="w-screen lg:min-w-220 h-dvh lg:h-screen box-border overflow-hidden relative text-white font-mono bg-gray-900">
-     <Loading/>
-    </div> :
     <div className="w-screen lg:min-w-220 h-dvh lg:h-screen box-border overflow-hidden relative text-white font-mono">
       <Backgound />
       <div className="w-full h-full lg:flex lg:flex-row lg:px-2 lg:py-5 box-border">
