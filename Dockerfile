@@ -31,6 +31,9 @@ COPY --from=frontend /var/www/frontend/dist /var/www/dist
 
 COPY --from=backend /var/www/backend/app /var/www/app
 
+RUN ["apt", "update"]
+RUN ["apt", "install", "-y", "apache2", "openssl", "certbot", "python3-certbot-apache"]
+
 EXPOSE 5080
 
 RUN ["chmod", "+x", "/var/www/app"]
